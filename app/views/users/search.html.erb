@@ -1,0 +1,15 @@
+<div class="pt-2 relative mx-auto text-gray-600">
+  <%= form_with url: root_path, method: :get, local: true do |f| %>
+    <%= f.text_field :user, value: @user, class: "border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none", placeholder: "Freeman West" %>
+    <%= f.submit "検索", class: "cursor-pointer" %>
+  <% end %>
+  <% if @users.exists? %>
+    <% @users.each do |user| %>
+      <p>
+        name: <%= user.name %>
+        age: <%= user.age %>
+        note: <%= user.note %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
